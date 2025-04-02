@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="Stylesheet.css">
+</head>
+<body>
+<h1>Person list</h1>
+
+<a href="/create">
+    <button class="btn-create, btn" id="btn-create">Create a new person</button>
+</a>
+
+<table>
+
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>artist name</th>
+        <th>age</th>
+        <th>gender</th>
+        <th>country</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="artist: ${personliste}">
+        <td th:text="${artist.Artist_ID}"/>
+        <td th:text="${artist.artistName}"/>
+        <td th:text="${artist.country}"/>
+        <td th:text="${artist.age}"/>
+        <td th:text="${artist.gender}"/>
+        <td>
+            <a th:href="@{'/viewOne/'+${artist.artist_ID}}">
+                <button class="btn-viewOne" id="btn-viewOne">View an artist</button>
+            </a>
+            <a th:href="@{'/deleteOne/'+${artist.artist_ID}}">
+                <button class="btn-deleteOne" id="btn-deleteOne">Delete a person</button>
+            </a>
+            <a th:href="@{'/updateOne/'+${artist.artist_ID}}">
+                <button class="btn-updateOne" id="btn-updateOne">update a person</button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
